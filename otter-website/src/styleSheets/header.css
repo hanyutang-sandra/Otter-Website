@@ -1,0 +1,9 @@
+.header-container{
+    padding: 0 2.3rem 0 2.3rem;
+}
+.header{
+    height: 4.385rem;
+    background-color: #ffffff;
+    border-radius: 0 0 2.5rem 2.5rem;
+    box-shadow: 0 2px 8px #d8d8d8;
+}
