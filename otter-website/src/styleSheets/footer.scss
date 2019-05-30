@@ -1,0 +1,17 @@
+@import "./styles.scss";
+
+.footer-container{
+  border-top: 1px solid $grey1;
+  background-color: white;
+  padding: 1.8125rem 0;
+}
+
+.footer{
+  @extend .body2;
+  color: $grey1;
+  line-height: 1.9rem;
+}
+
+.department{
+  line-height: 1.2rem;
+}

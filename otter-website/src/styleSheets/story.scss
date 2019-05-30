@@ -1,0 +1,233 @@
+@import "./styles.scss";
+
+.story-container{
+  display: block;
+  box-sizing: border-box;
+  padding: 0 6rem;
+  margin-top: 7rem;
+}
+
+.story-side{
+  display: inline-flex;
+  position: fixed;
+  top: calc(100%/2);
+  overflow: hidden;
+}
+
+.story-side ul{
+  display: inline-block;
+}
+
+.story-side li{
+  @extend .body2;
+  color: $grey1;
+  margin-top: 1.5rem;
+}
+
+.side-svg {
+  width: 1.5rem;
+  height: 15rem;
+  display: inline-block;
+  position: relative;
+}
+
+.side-svg line{
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke: $blue;
+}
+
+.story-main{
+  display: inline-block;
+  padding-left: 1rem;
+}
+
+.story-main section {
+  width: 100%;
+  height: auto;
+  padding: 1.15rem 0 6rem 0;
+}
+
+.story-main section .main-title{
+  @extend .h2;
+  display: inline-block;
+
+  &::before{
+    display: block;
+    content: '';
+    position: relative;
+    z-index: -100;
+    top: 2.5rem;
+    background-color: $blue;
+    width: 105%;
+    height: 1.3rem;
+    border-radius: 3rem;
+  }
+}
+
+
+.story-main section .main-article {
+  @extend .body1;
+  margin-top: 1.675rem;
+}
+
+.cover{
+  text-align: right;
+}
+
+.cover-img{
+  width: 100%;
+  max-height: 25rem;
+  overflow-y: hidden;
+}
+
+.cover-img img{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin-top: -15rem;
+}
+
+.cover-text {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+  height: auto;
+  text-align: left;
+  margin-top: -13rem;
+}
+
+.coverText-svg {
+  position: relative;
+  left: -10rem;
+  z-index: 10;
+  transform: scale(0.55) rotate(90deg);
+  fill: $blue;
+}
+
+.coverText-container {
+  display: block;
+  position: relative;
+  z-index: 80;
+  margin-top: -15rem;
+}
+
+.coverText-title {
+  @extend .h1
+}
+
+.coverText-article {
+  @extend .body1;
+  margin-top: 1.675rem;
+}
+
+.team-photos {
+  width: 100%;
+  height: auto;
+  text-align: left;
+  margin-top: 2.1rem;
+  margin-bottom: 3.5rem;
+}
+
+.team-photos li{
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+}
+
+.team-photos p{
+  display: inline-block;
+}
+
+.team-photos p:first-child{
+  @extend .h4;
+  margin-top: 1.1rem;
+}
+
+.team-photos p:last-child{
+  @extend .body1;
+  color: $grey1;
+  margin-top: 0.5rem;
+}
+
+.photos-img {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.photos-img img{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.button-container{
+  display: block;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.research-map{
+  width: 80%;
+  height: auto;
+  margin-top: 2.5rem;
+  margin-bottom: 2.1375rem;
+}
+
+.research-map img{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.research-photo {
+  margin-top: 6rem;
+}
+
+.research-photo3{
+  margin-top: 1.3rem;
+  max-height: 16.5rem;
+  overflow-y: hidden;
+}
+
+
+.research-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.persona-img{
+  width: 100%;
+  height: auto;
+  margin-top: 2rem;
+}
+
+.persona-img img{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.ideation-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  margin-top: 2.5rem;
+}
+
+.more {
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.more p{
+  @extend .h4;
+  display: inline-block;
+  color: $blue;
+}
+
+
