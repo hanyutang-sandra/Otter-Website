@@ -11,7 +11,33 @@ import resume from '../media/Team/resume.svg';
 import portfolio from '../media/Team/portfolio.svg';
 import linkedin from '../media/Team/linkedin.svg';
 
+import anime from 'animejs';
+
+import LazyLoad from 'react-lazyload';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
+
 class Team extends React.Component {
+
+    componentDidMount = () => {
+        this.backgroundAnimation('.cover-img-cover', '.cover-text')
+    };
+
+    backgroundAnimation = (elem1, elem2) => {
+        anime.timeline({
+            targets: elem1,
+            width: '0%',
+            easing: 'easeInOutQuad',
+            direction: 'normal',
+            loop: false
+        }).add({
+            targets: elem2,
+            marginTop: '-13rem',
+            opacity: '1',
+            direction: 'normal',
+            loop: false
+        })
+    };
+
     render () {
         return (
             <Grid className='team-container' fluid>
@@ -42,10 +68,11 @@ class Team extends React.Component {
                     </Col>
 
                     <Col lg={8} >
-                        <main className='story-main'>
+                        <main className='team-main'>
                             <section className='cover'>
                                 <div className='cover-img'>
                                     <img src={cover} alt='cover' />
+                                    <div className='cover-img-cover'/>
                                 </div>
                                 <div className='cover-text'>
                                     <svg className='coverText-svg' viewBox="0 0 581.63 626.68">
@@ -61,12 +88,14 @@ class Team extends React.Component {
 
                             <section className='members'>
                                 <ul>
-                                    <li>
+                                    <li className='shiv'>
                                         <Grid fluid>
                                             <Row>
                                                 <Col lg={3}>
                                                     <div className='members-img'>
-                                                        <img src={shiv} alt='shiv' />
+                                                        <LazyLoad>
+                                                            <img src={shiv} alt='shiv'/>
+                                                        </LazyLoad>
                                                     </div>
                                                     <div className='members-text'>
                                                         <p>Shivang Gupta</p>
@@ -105,12 +134,14 @@ class Team extends React.Component {
                                         </Grid>
                                     </li>
 
-                                    <li>
+                                    <li className='wei'>
                                         <Grid fluid>
                                             <Row>
                                                 <Col lg={3}>
                                                     <div className='members-img'>
-                                                        <img src={wei} alt='wei' />
+                                                        <LazyLoad>
+                                                            <img src={wei} alt='wei' />
+                                                        </LazyLoad>
                                                     </div>
                                                     <div className='members-text'>
                                                         <p>Wei Gong</p>
@@ -149,12 +180,14 @@ class Team extends React.Component {
                                         </Grid>
                                     </li>
 
-                                    <li>
+                                    <li className='mingtong'>
                                         <Grid fluid>
                                             <Row>
                                                 <Col lg={3}>
                                                     <div className='members-img'>
-                                                        <img src={mingtong} alt='mingtong' />
+                                                        <LazyLoad>
+                                                            <img src={mingtong} alt='mingtong' />
+                                                        </LazyLoad>
                                                     </div>
                                                     <div className='members-text'>
                                                         <p>Mingtong Zhang</p>
@@ -193,12 +226,14 @@ class Team extends React.Component {
                                         </Grid>
                                     </li>
 
-                                    <li>
+                                    <li className='wenjie'>
                                         <Grid fluid>
                                             <Row>
                                                 <Col lg={3}>
                                                     <div className='members-img'>
-                                                        <img src={wenjie} alt='wenjie' />
+                                                        <LazyLoad>
+                                                            <img src={wenjie} alt='wenjie' />
+                                                        </LazyLoad>
                                                     </div>
                                                     <div className='members-text'>
                                                         <p>Wenjie Li</p>
@@ -237,12 +272,14 @@ class Team extends React.Component {
                                         </Grid>
                                     </li>
 
-                                    <li>
+                                    <li className='hanyu'>
                                         <Grid fluid>
                                             <Row>
                                                 <Col lg={3}>
                                                     <div className='members-img'>
-                                                        <img src={hanyu} alt='hanyu' />
+                                                        <LazyLoad>
+                                                            <img src={hanyu} alt='hanyu' />
+                                                        </LazyLoad>
                                                     </div>
                                                     <div className='members-text'>
                                                         <p>Hanyu Tang</p>

@@ -1,53 +1,71 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import persona from '../media/Home/Home-Persona.png';
+import persona from '../media/Home/persona-border.svg';
 import '../styleSheets/home.scss';
+import leftSvg from '../media/Home/Home-Shape.svg';
+
+import {top, notTop, goStory} from "../redux/actions";
+import store from '../redux/store';
+
+import anime from 'animejs';
+
 
 class Home extends React.Component {
+    componentDidMount = () => {
+        window.addEventListener('scroll', this.handleScroll);
+        this.handleMove('.left-svg')
+    };
+
+    handleScroll = () => {
+        if (window.scrollY/16>=5) {
+            store.dispatch(notTop())
+        }else{
+            store.dispatch(top())
+        }
+    };
+
+    handleMove = (elem) => {
+        anime({
+            targets: elem,
+            left: 700,
+            direction: 'alternate',
+            easing: 'easeInOutSine',
+            loop: true,
+            duration: 20000,
+        });
+    };
+
     render () {
         return (
             <Grid fluid className='home-container'>
                 <Row className='home'>
                     <Col lg={6} className='home-left'>
-                        <svg className='left-svg' viewBox="0 0 581.63 626.68">
-                            <path x='0' y='0'
-                                  d="M580.91,323.68c12.16,176.31-130.27,303-307,303-131,0-247-92-270-216-19.54-105.32,38-174,88-223,57.58-56.43,54.52-167.25,202-186C466.91-20.32,570.91,178.68,580.91,323.68Z"/>
-                        </svg>
-                        <div className='left-text'>
-                            <svg>
-                                <text className='text-title' x='0' y='50'>Learn real language</text>
-                                <text className='text-title' x='0' y='110'>in real world.</text>
-                                <text className='text-subtitle' x='0' y='170'>A new language learning tool coming</text>
-                                <text className='text-subtitle' x='0' y='205'>soon.</text>
-                            </svg>
+                        <div className='left-svg'>
+                            <img src={leftSvg} alt='svg' />
                         </div>
-                        <button className='button'>
+                        <div className='left-text'>
+                            <p className='text-title'>Learn real language in real world.</p>
+                            <p className='text-subtitle'>A new language learning tool coming soon.</p>
+                        </div>
+                        <button className='button' onClick={()=>store.dispatch(goStory())}>
                             See On-Going Process
                         </button>
                     </Col>
                     <Col lg={6} className='home-right'>
-                        <svg viewBox="0 0 581.63 626.68" width="0" height="0">
-                            <defs>
-                                <clipPath id='persona-clip'>
-                                    <path x='0' y= '0'
-                                          d="M617.45,257.48c12.16,176.31-114.27,291-291,291s-299-73-322-197c-19.53-105.33,25.32-208.9,133-286,81-58,161-68,239-65C525.45,6.21,607.45,112.48,617.45,257.48Z"/>
-                                </clipPath>
-                            </defs>
-                        </svg>
-
                         <div className='right-persona'>
                             <img src={persona} alt='student-persona' />
                         </div>
                     </Col>
                 </Row>
-                <Row className='home-svg'>
-                    <svg>
-
-                    </svg>
-                    <svg>
-
-                    </svg>
-                </Row>
+                <svg className='home-svg' viewBox="0 0 581.63 626.68">
+                    <path x='0' y='0'
+                          d="M580.91,323.68c12.16,176.31-130.27,303-307,303-131,0-247-92-270-216-19.54-105.32,38-174,88-223,57.58-56.43,54.52-167.25,202-186C466.91-20.32,570.91,178.68,580.91,323.68Z"/>
+                </svg>
+                <svg className='home-svg' viewBox="0 0 581.63 626.68">
+                    <path x='0' y='0'
+                          d="M580.91,323.68c12.16,176.31-130.27,303-307,303-131,0-247-92-270-216-19.54-105.32,38-174,88-223,57.58-56.43,54.52-167.25,202-186C466.91-20.32,570.91,178.68,580.91,323.68Z"/>
+                </svg>
+                <div style={{width: '100%', height: '15rem'}} />
             </Grid>
         )
     }

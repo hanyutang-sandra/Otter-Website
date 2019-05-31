@@ -18,7 +18,33 @@ import studentMap from '../media/Story/Story-PS-StudentMap-svg.svg';
 import ideation1 from '../media/Story/Story-Ideation-1.jpg';
 import ideation2 from '../media/Story/Story-Ideation-2.jpg';
 
+import anime from 'animejs';
+
+import LazyLoad from 'react-lazyload';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
+
 class Story extends React.Component {
+
+    componentDidMount = () => {
+        this.backgroundAnimation('.cover-img-cover', '.cover-text')
+    };
+
+    backgroundAnimation = (elem1, elem2) => {
+        anime.timeline({
+            targets: elem1,
+            width: '0%',
+            easing: 'easeInOutQuad',
+            direction: 'normal',
+            loop: false
+        }).add({
+            targets: elem2,
+            marginTop: '-13rem',
+            opacity: '1',
+            direction: 'normal',
+            loop: false
+        })
+    };
+
     render () {
         return (
             <Grid className='story-container' fluid>
@@ -53,6 +79,7 @@ class Story extends React.Component {
                             <section className='cover'>
                                 <div className='cover-img'>
                                     <img src={cover} alt='cover' />
+                                    <div className='cover-img-cover'/>
                                 </div>
                                 <div className='cover-text'>
                                     <svg className='coverText-svg' viewBox="0 0 581.63 626.68">
@@ -83,9 +110,11 @@ class Story extends React.Component {
                                     <p>We are a group of master students in Carnegie Mellon University. We study Educational Technology and Applied Learning Science in Human-Computer Interaction Institute, School of Computer Science. </p>
                                 </div>
                                 <ul className='team-photos'>
-                                    <li>
+                                    <li className='shiv'>
                                         <div className='photos-img'>
-                                            <img src={shiv} alt='shiv' />
+                                            <LazyLoad>
+                                                <img src={shiv} alt='shiv' />
+                                            </LazyLoad>
                                         </div>
                                         <div className='photos-text'>
                                             <p>Shivang Gupta</p>
@@ -93,9 +122,11 @@ class Story extends React.Component {
                                             <p>Team Coordinator</p>
                                         </div>
                                     </li>
-                                    <li>
+                                    <li className='wei'>
                                         <div className='photos-img'>
-                                            <img src={wei} alt='wei' />
+                                            <LazyLoad>
+                                                <img src={wei} alt='wei' />
+                                            </LazyLoad>
                                         </div>
                                         <div className='photos-text'>
                                             <p>Wei Gong</p>
@@ -103,9 +134,11 @@ class Story extends React.Component {
                                             <p>Research Lead</p>
                                         </div>
                                     </li>
-                                    <li>
+                                    <li className='mingtong'>
                                         <div className='photos-img'>
-                                            <img src={mingtong} alt='mingtong' />
+                                            <LazyLoad>
+                                                <img src={mingtong} alt='mingtong' />
+                                            </LazyLoad>
                                         </div>
                                         <div className='photos-text'>
                                             <p>Mingtong Zhang</p>
@@ -113,9 +146,11 @@ class Story extends React.Component {
                                             <p>Content Lead</p>
                                         </div>
                                     </li>
-                                    <li>
+                                    <li className='wenjie'>
                                         <div className='photos-img'>
-                                            <img src={wenjie} alt='wenjie' />
+                                            <LazyLoad>
+                                                <img src={wenjie} alt='wenjie' />
+                                            </LazyLoad>
                                         </div>
                                         <div className='photos-text'>
                                             <p>Wenjie Li</p>
@@ -123,9 +158,11 @@ class Story extends React.Component {
                                             <p>Design Lead</p>
                                         </div>
                                     </li>
-                                    <li>
+                                    <li className='hanyu'>
                                         <div className='photos-img'>
-                                            <img src={hanyu} alt='hanyu' />
+                                            <LazyLoad>
+                                                <img src={hanyu} alt='hanyu' />
+                                            </LazyLoad>
                                         </div>
                                         <div className='photos-text'>
                                             <p>Hanyu Tang</p>
@@ -149,7 +186,9 @@ class Story extends React.Component {
                                     <p>We are a group of master students in Carnegie Mellon University. We study Educational Technology and Applied Learning Science in Human-Computer Interaction Institute, School of Computer Science. </p>
                                 </div>
                                 <div className='research-map'>
-                                    <img src={researchMap} alt='reseach-map' />
+                                    <LazyLoad throttle={1000}>
+                                        <img src={researchMap} alt='reseach-map' />
+                                    </LazyLoad>
                                 </div>
                                 <div className='main-article'>
                                     <p>We are a group of master students in Carnegie Mellon University. We study Educational Technology and Applied Learning Science in Human-Computer Interaction Institute, School of Computer Science. </p>
@@ -160,15 +199,21 @@ class Story extends React.Component {
                                 <Grid fluid className='research-photo' style={{padding: 5}}>
                                     <Row>
                                         <Col lg={6} style={{paddingLeft: 0, paddingRight: 10}}>
-                                            <img src={research1} alt='research-1' />
+                                            <LazyLoad>
+                                                <img src={research1} alt='research-1' />
+                                            </LazyLoad>
                                         </Col>
                                         <Col lg={6} style={{textAlign: 'right', paddingRight: 0, paddingLeft: 10}}>
-                                            <img src={research2} alt='research-2' />
+                                            <LazyLoad>
+                                                <img src={research2} alt='research-2' />
+                                            </LazyLoad>
                                         </Col>
                                     </Row>
                                     <Row className='research-photo3'>
                                         <Col lg={12} style={{padding: 0}}>
-                                            <img src={research3} alt='research-3' />
+                                            <LazyLoad>
+                                                <img src={research3} alt='research-3' />
+                                            </LazyLoad>
                                         </Col>
                                     </Row>
                                 </Grid>
@@ -217,10 +262,14 @@ class Story extends React.Component {
                                 <Grid fluid className='ideation-photo' style={{padding: 5}}>
                                     <Row>
                                         <Col lg={6} style={{paddingLeft: 0, paddingRight: 10}}>
-                                            <img src={ideation1} alt='research-1' />
+                                            <LazyLoad>
+                                                <img src={ideation1} alt='research-1' />
+                                            </LazyLoad>
                                         </Col>
                                         <Col lg={6} style={{textAlign: 'right', paddingRight: 0, paddingLeft: 10}}>
-                                            <img src={ideation2} alt='research-2' />
+                                            <LazyLoad>
+                                                <img src={ideation2} alt='research-2' />
+                                            </LazyLoad>
                                         </Col>
                                     </Row>
                                 </Grid>

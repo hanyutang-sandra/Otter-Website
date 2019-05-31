@@ -12,6 +12,7 @@
   position: fixed;
   top: calc(100%/2);
   overflow: hidden;
+  z-index: 50;
 }
 
 .story-side ul{
@@ -71,33 +72,46 @@
   margin-top: 1.675rem;
 }
 
-.cover{
+.story-main .cover{
   text-align: right;
 }
 
-.cover-img{
+.story-main .cover-img{
   width: 100%;
+  height: 25rem;
   max-height: 25rem;
   overflow-y: hidden;
 }
 
-.cover-img img{
+.story-main .cover-img-cover {
+  display: block;
+  width: 100%;
+  height: 25rem;
+  max-height: 25rem;
+  background-color: #ffffff;
+  position: absolute;
+  z-index: 10;
+  top: 8rem;
+}
+
+.story-main .cover-img img{
   width: 100%;
   height: auto;
   object-fit: contain;
-  margin-top: -15rem;
+  object-position: 0 -10rem;
 }
 
-.cover-text {
+.story-main .cover-text {
   display: inline-block;
   position: relative;
   width: 50%;
   height: auto;
   text-align: left;
-  margin-top: -13rem;
+  margin-top:0;
+  opacity: 0;
 }
 
-.coverText-svg {
+.story-main .coverText-svg {
   position: relative;
   left: -10rem;
   z-index: 10;
@@ -105,7 +119,7 @@
   fill: $blue;
 }
 
-.coverText-container {
+.story-main.coverText-container {
   display: block;
   position: relative;
   z-index: 80;
@@ -157,9 +171,45 @@
 }
 
 .photos-img img{
-  width: 100%;
+  width: 90%;
   height: auto;
   object-fit: contain;
+}
+
+.shiv .photos-img>img{
+  mask-image: url("../media/Home/photoFrame.svg");
+  mask-repeat: no-repeat;
+}
+
+.wei .photos-img>img{
+  mask-image: url("../media/Home/photoFrame2.svg");
+  mask-repeat: no-repeat;
+}
+
+.mingtong .photos-img>img{
+  mask-image: url("../media/Home/photoFrame3.svg");
+  mask-repeat: no-repeat;
+}
+
+.wenjie .photos-img>img{
+  mask-image: url("../media/Home/photoFrame4.svg");
+  mask-repeat: no-repeat;
+}
+
+.hanyu .photos-img>img{
+  mask-image: url("../media/Home/photoFrame5.svg");
+  mask-repeat: no-repeat;
+}
+
+.goUp-enter {
+  opacity: 0;
+  height: 0;
+}
+
+.goUp-enter.goUp-enter-active {
+  opacity: 0.5;
+  height: 60rem;
+  transition: height 3000ms ease-in;
 }
 
 .button-container{

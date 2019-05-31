@@ -10,25 +10,28 @@
 }
 
 .home-left{
+  isolation: isolate;
 }
 
 .left-svg{
   position: relative;
-  z-index: -100;
   margin-top: 3rem;
+  z-index: -90;
   transform: scale(0.7);
   fill: $orange;
+  left: -10rem;
 }
 
-.left-text{
+.left-text {
   position: relative;
-  z-index: -50;
   width: 100%;
   height: 15rem;
+  z-index: -50;
   margin-top: -20rem;
-  fill: black;
+  color: black;
   mix-blend-mode: saturation;
 }
+
 
 .left-text svg{
   width: 100%;
@@ -40,38 +43,53 @@
 }
 
 .text-subtitle{
-  @extend .h3
+  @extend .h3;
+  margin-top: 1.5rem;
 }
 
 .button {
   @extend .button-base;
   position: relative;
-  z-index: 100;
+  z-index: 50;
 }
 
 .home-right {
-  padding-right: 0;
+  text-align: right;
 }
 
-.home-right svg{
-  background-color: blue;
-}
 
 .right-persona {
   width: 100%;
   height: 100%;
+  display: inline-block;
   overflow: hidden;
+  margin-top: 15rem;
+  position: relative;
+  z-index: 90;
 }
 
-#persona-clip{
-  transform: scale(0.9);
-  width: 130%;
+.right-persona img {
+  width: 100%;
+  height: auto;
 }
 
-.right-persona img{
-  width: auto;
-  height: 36rem;
-  clip-path: url('#persona-clip');
-  background-color: red;
-  box-shadow: 0 2px 8px $grey2;
+.home-svg{
+  position: absolute;
+}
+
+.home-svg:nth-last-child(3){
+  transform: scale(0.2) rotate(90deg);
+  left: -45rem;
+  top: 0;
+  fill: $grey3;
+  z-index: -100;
+}
+
+.home-svg:nth-last-child(2){
+  transform: scale(0.3) rotate(90deg);
+  right: -45rem;
+  top: -5rem;
+  fill: $grey3;
+  z-index: -100;
+  bottom: 10rem;
 }

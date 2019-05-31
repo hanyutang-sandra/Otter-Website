@@ -1,25 +1,31 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import {BrowserRouter as Router, Route} from "react-router-dom";
 import Header from './header';
 import Footer from './footer';
 import Home from './home';
 import Story from './story';
 import Team from './team';
 
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => ({
+    page: state.changePage.page
+});
+
 class Page extends React.Component {
     render () {
         return (
-            <Router>
                 <Grid fluid>
-                    <Row p>
+                    <Row>
                         <Col lg={12}>
                             <Header />
                         </Col>
                     </Row>
-                    <Row>
+                    <Row onScroll={() => console.log('123')}>
                         <Col lg={12}>
-                            <Home />
+                            {this.props.page === 'Home'? <Home/>:null}
+                            {this.props.page === 'Story'? <Story/>:null}
+                            {this.props.page === 'Team'? <Team/>:null}
                         </Col>
                     </Row>
                     <Row style={{padding: '0 6.1rem'}}>
@@ -28,10 +34,8 @@ class Page extends React.Component {
                         </Col>
                     </Row>
                 </Grid>
-
-            </Router>
         )
     }
 }
 
-export default Page
+export default connect(mapStateToProps)(Page)
