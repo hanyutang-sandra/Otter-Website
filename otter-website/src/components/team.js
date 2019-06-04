@@ -16,10 +16,21 @@ import anime from 'animejs';
 import LazyLoad from 'react-lazyload';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
+function getSiblings(elem) {
+    let siblings = [];
+    [...elem.parentNode.childNodes].forEach(sibling =>
+        sibling === elem ? null : siblings.push(sibling)
+    );
+    return siblings
+}
+
+
 class Team extends React.Component {
 
     componentDidMount = () => {
-        this.backgroundAnimation('.cover-img-cover', '.cover-text')
+        this.backgroundAnimation('.cover-img-cover', '.cover-text');
+        window.scrollTo(0, 0);
+        window.addEventListener('wheel', this.showPosition)
     };
 
     backgroundAnimation = (elem1, elem2) => {
@@ -38,6 +49,50 @@ class Team extends React.Component {
         })
     };
 
+    anchorClick = (ev) => {
+        window.scrollTo(0, document.querySelector(ev.currentTarget.getAttribute('data-name')).offsetTop-50, 'smooth');
+        document.querySelector('.side-svg line').setAttribute('y1',  ev.currentTarget.offsetTop + 5.5);
+        document.querySelector('.side-svg line').setAttribute('y2',  ev.currentTarget.offsetTop+ 6.5);
+        ev.currentTarget.style.color='black';
+        getSiblings(ev.currentTarget).forEach(elem => elem.style.color = '#979797');
+    };
+
+    hoverAnimation = (ev) => {
+        anime({
+            targets: document.querySelector('.side-svg line'),
+            y2: {value: ev.currentTarget.offsetTop + 5, duration: 1000, delay: 0},
+            easing: 'easeOutElastic(1, .8)',
+            loop: false
+        });
+    };
+
+    leaveAnimation = () => {
+        anime({
+            targets: document.querySelector('.side-svg line'),
+            y2: {value: parseInt(document.querySelector('.side-svg line').getAttribute('y1')) + 1, duration: 1000, delay: 0},
+            easing: 'easeOutElastic(1, .8)',
+            loop: false
+        });
+    };
+
+    showPosition = () => {
+        document.querySelectorAll('.members>ul>li').forEach((elem) => {
+            if (elem.offsetTop-window.scrollY-window.innerHeight < 0) {
+                document.querySelector('.' + elem.getAttribute('class') + '-anchor').style.color = 'black';
+                getSiblings(document.querySelector('.' + elem.getAttribute('class') + '-anchor' ))
+                    .forEach((elem) => elem.style.color = '#979797');
+
+                if (document.querySelector('.' + elem.getAttribute('class') + '-anchor').style.color === 'black') {
+                    let target = document.querySelector('.' + elem.getAttribute('class') + '-anchor');
+                    document.querySelector('.side-svg line').setAttribute('y1', target.offsetTop + 5.5);
+                    document.querySelector('.side-svg line').setAttribute('y2', target.offsetTop + 6.5);
+                }
+            }
+
+        });
+
+    };
+
     render () {
         return (
             <Grid className='team-container' fluid>
@@ -45,22 +100,48 @@ class Team extends React.Component {
                     <Col lg={2}>
                         <aside className='team-side'>
                             <svg className='side-svg'>
-                                <line x1='6' y1='6' x2='6' y2='200'/>
+                                <line x1='6' y1='30' x2='6' y2='31'/>
                             </svg>
                             <ul>
-                                <li>
-                                    Coordinator (PM)
+                                <li className='shiv-anchor'
+                                    data-name=".shiv"
+                                    onClick={this.anchorClick.bind(this)}
+                                    onMouseOver={this.hoverAnimation.bind(this)}
+                                    onMouseOut={this.leaveAnimation.bind(this)}
+                                    style={{color: 'black'}}
+                                >
+                                    Team Lead
                                 </li>
-                                <li>
+                                <li className='wei-anchor'
+                                    data-name=".wei"
+                                    onClick={this.anchorClick.bind(this)}
+                                    onMouseOver={this.hoverAnimation.bind(this)}
+                                    onMouseOut={this.leaveAnimation.bind(this)}
+                                >
                                     Research Lead
                                 </li>
-                                <li>
+                                <li className='mingtong-anchor'
+                                    data-name=".mingtong"
+                                    onClick={this.anchorClick.bind(this)}
+                                    onMouseOver={this.hoverAnimation.bind(this)}
+                                    onMouseOut={this.leaveAnimation.bind(this)}
+                                >
                                     Content Lead
                                 </li>
-                                <li>
+                                <li className='wenjie-anchor'
+                                    data-name=".wenjie"
+                                    onClick={this.anchorClick.bind(this)}
+                                    onMouseOver={this.hoverAnimation.bind(this)}
+                                    onMouseOut={this.leaveAnimation.bind(this)}
+                                >
                                     Design Lead
                                 </li>
-                                <li>
+                                <li className='hanyu-anchor'
+                                    data-name=".hanyu"
+                                    onClick={this.anchorClick.bind(this)}
+                                    onMouseOver={this.hoverAnimation.bind(this)}
+                                    onMouseOut={this.leaveAnimation.bind(this)}
+                                >
                                     Development Lead
                                 </li>
                             </ul>
@@ -100,7 +181,7 @@ class Team extends React.Component {
                                                     <div className='members-text'>
                                                         <p>Shivang Gupta</p>
                                                         <br />
-                                                        <p>Team Coordinator</p>
+                                                        <p>Team Lead</p>
                                                     </div>
                                                 </Col>
                                                 <Col lg={9}>

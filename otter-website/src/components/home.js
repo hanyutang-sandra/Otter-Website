@@ -13,7 +13,8 @@ import anime from 'animejs';
 class Home extends React.Component {
     componentDidMount = () => {
         window.addEventListener('scroll', this.handleScroll);
-        this.handleMove('.left-svg')
+        /*this.handleMove('.left-svg');*/
+        window.scrollTo(0, 0);
     };
 
     handleScroll = () => {
@@ -37,14 +38,14 @@ class Home extends React.Component {
 
     render () {
         return (
-            <Grid fluid className='home-container'>
+            <Grid className='home-container' fluid>
                 <Row className='home'>
                     <Col lg={6} className='home-left'>
                         <div className='left-svg'>
                             <img src={leftSvg} alt='svg' />
                         </div>
                         <div className='left-text'>
-                            <p className='text-title'>Learn real language in real world.</p>
+                            <p className='text-title'>Learn real language in the real world.</p>
                             <p className='text-subtitle'>A new language learning tool coming soon.</p>
                         </div>
                         <button className='button' onClick={()=>store.dispatch(goStory())}>
@@ -57,11 +58,11 @@ class Home extends React.Component {
                         </div>
                     </Col>
                 </Row>
-                <svg className='home-svg' viewBox="0 0 581.63 626.68">
+                <svg className='home-svg-left' viewBox="0 0 581.63 626.68">
                     <path x='0' y='0'
                           d="M580.91,323.68c12.16,176.31-130.27,303-307,303-131,0-247-92-270-216-19.54-105.32,38-174,88-223,57.58-56.43,54.52-167.25,202-186C466.91-20.32,570.91,178.68,580.91,323.68Z"/>
                 </svg>
-                <svg className='home-svg' viewBox="0 0 581.63 626.68">
+                <svg className='home-svg-right' viewBox="0 0 581.63 626.68">
                     <path x='0' y='0'
                           d="M580.91,323.68c12.16,176.31-130.27,303-307,303-131,0-247-92-270-216-19.54-105.32,38-174,88-223,57.58-56.43,54.52-167.25,202-186C466.91-20.32,570.91,178.68,580.91,323.68Z"/>
                 </svg>

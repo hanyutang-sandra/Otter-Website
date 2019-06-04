@@ -14,7 +14,7 @@ class Footer extends React.Component {
                     </Col>
                     <Col lg={6}>
                         <p>Contact Us</p>
-                        <p>otter.metals@gamil.com</p>
+                        <p>otter.metals@gmail.com</p>
                         <p>5000 Forbes Avenue, Pittsburgh, P.A., 15213</p>
                     </Col>
                 </Row>

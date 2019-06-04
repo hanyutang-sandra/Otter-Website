@@ -25,7 +25,7 @@ class Header extends React.Component {
     onHover = (ev) => {
         anime({
             targets: ev.currentTarget.childNodes[1].childNodes[0],
-            x2: {value: 43, duration: 1000, delay: 100},
+            x2: {value: 43, duration: 1000, delay: 0},
             easing: 'easeOutElastic(1, .8)',
             loop: false
         });
@@ -34,14 +34,13 @@ class Header extends React.Component {
     onLeave = (ev) => {
         anime({
             targets: ev.currentTarget.childNodes[1].childNodes[0],
-            x2: {value: 6, duration: 1000, delay: 100},
+            x2: {value: 6, duration: 1000, delay: 0},
             easing: 'easeOutElastic(1, .8)',
             loop: false
         })
     };
 
     render () {
-        console.log(this.props.page);
         return (
             <Grid fluid className='header-container' >
                 <Row className='header'
@@ -63,7 +62,7 @@ class Header extends React.Component {
                                 <svg>
                                     <line x1='6'
                                           y1='6'
-                                          x2={this.props.page==='Home'?'43':'6'}
+                                          x2={this.props.page ==='Home'?'43':'6'}
                                           y2='6'/>
                                 </svg>
                             </li>
@@ -75,7 +74,7 @@ class Header extends React.Component {
                                 <svg>
                                     <line x1='6'
                                           y1='6'
-                                          x2={this.props.page==='Story'?'43':'6'}
+                                          x2={this.props.page ==='Story'?'43':'6'}
                                           y2='6'/>
                                 </svg>
                             </li>
@@ -87,7 +86,7 @@ class Header extends React.Component {
                                 <svg>
                                     <line x1='6'
                                           y1='6'
-                                          x2={this.props.page==='Team'?'43':'6'}
+                                          x2={this.props.page ==='Team'?'43':'6'}
                                           y2='6'/>
                                 </svg>
                             </li>

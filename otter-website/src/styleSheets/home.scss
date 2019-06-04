@@ -19,7 +19,7 @@
   z-index: -90;
   transform: scale(0.7);
   fill: $orange;
-  left: -10rem;
+  left: 5rem;
 }
 
 .left-text {
@@ -28,8 +28,9 @@
   height: 15rem;
   z-index: -50;
   margin-top: -20rem;
+  /*margin-top: 20rem;*/
   color: black;
-  mix-blend-mode: saturation;
+ /* mix-blend-mode: saturation;*/
 }
 
 
@@ -73,23 +74,19 @@
   height: auto;
 }
 
-.home-svg{
+.home-svg-left{
   position: absolute;
-}
-
-.home-svg:nth-last-child(3){
-  transform: scale(0.2) rotate(90deg);
+  transform: rotate(90deg) scale(0.2);
+  fill: $grey3;
+  margin-top: -45rem;
   left: -45rem;
-  top: 0;
-  fill: $grey3;
-  z-index: -100;
 }
 
-.home-svg:nth-last-child(2){
-  transform: scale(0.3) rotate(90deg);
-  right: -45rem;
-  top: -5rem;
+.home-svg-right{
+  position: absolute;
+  transform: rotate(90deg) scale(0.2);
   fill: $grey3;
-  z-index: -100;
-  bottom: 10rem;
+  margin-top: -45rem;
+  right: -45rem;
 }
+

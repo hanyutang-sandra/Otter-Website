@@ -21,7 +21,7 @@ class Page extends React.Component {
                             <Header />
                         </Col>
                     </Row>
-                    <Row onScroll={() => console.log('123')}>
+                    <Row>
                         <Col lg={12}>
                             {this.props.page === 'Home'? <Home/>:null}
                             {this.props.page === 'Story'? <Story/>:null}
