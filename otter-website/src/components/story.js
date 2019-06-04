@@ -114,14 +114,14 @@ class Story extends React.Component {
         });
 
         document.querySelectorAll('.story-main .goUp').forEach((goUp) => {
-            goUp.style.marginTop = '10rem';
             if (goUp.offsetTop-window.scrollY-window.innerHeight <= 0) {
-                goUp.style.marginTop = '1rem';
-                goUp.style.transition = '1s ease';
+                /*goUp.style.marginTop = '1rem';*/
+                goUp.style.top='1rem';
+                goUp.style.transition = '0.7s ease';
             }
 
             let teacherBack = document.querySelector('.teacher-persona-back');
-            if (teacherBack.offsetTop-window.scrollY-window.innerHeight <= 0) {
+            if (teacherBack.offsetTop-window.scrollY-window.innerHeight < 0) {
                 teacherBack.style.width = '100%';
                 teacherBack.style.transition = '2s ease';
             }

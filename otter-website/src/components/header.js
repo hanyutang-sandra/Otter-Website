@@ -2,6 +2,8 @@ import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import '../styleSheets/header.scss';
 import logo from '../media/logo.svg';
+import hamburgerBtn  from '../media/Group 2.svg';
+import closeBtn from '../media/Group 2-2.svg';
 
 import {goHome, goStory, goTeam} from "../redux/actions";
 import store from '../redux/store';
@@ -46,10 +48,15 @@ class Header extends React.Component {
                 <Row className='header'
                      style={this.props.position==='notTop'? {borderRadius: '0 0 2.5rem 2.5rem', boxShadow:' 0 2px 8px #d8d8d8', transition: '0.5s ease'}:null}
                 >
-                    <Col lg={6} className="logo">
+                    <Col lg={6} md={6} sm={6} xs={6} className="logo">
                         <span className='logoBox' onClick={()=>store.dispatch(goHome())}>
                             <img className='logoPic' src={logo} alt='otter-logo'/>
                             <span className='logoName'>Team Otter</span>
+                        </span>
+                    </Col>
+                    <Col lg={6} md={6} sm={6} xs={6} className="hamburger">
+                        <span>
+                            <img className='hamburgerBtn' src={hamburgerBtn} alt='menu' />
                         </span>
                     </Col>
                     <Col lg={6} className="breadcrumb">

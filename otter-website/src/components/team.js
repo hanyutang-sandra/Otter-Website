@@ -14,7 +14,6 @@ import linkedin from '../media/Team/linkedin.svg';
 import anime from 'animejs';
 
 import LazyLoad from 'react-lazyload';
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 function getSiblings(elem) {
     let siblings = [];
@@ -30,7 +29,8 @@ class Team extends React.Component {
     componentDidMount = () => {
         this.backgroundAnimation('.cover-img-cover', '.cover-text');
         window.scrollTo(0, 0);
-        window.addEventListener('wheel', this.showPosition)
+        window.addEventListener('wheel', this.showPosition);
+        window.addEventListener('scroll', this.sectionAnimation)
     };
 
     backgroundAnimation = (elem1, elem2) => {
@@ -91,6 +91,19 @@ class Team extends React.Component {
 
         });
 
+    };
+
+    sectionAnimation = () => {
+
+        document.querySelectorAll('.members>ul>li').forEach((goUp) => {
+            /*goUp.style.marginTop = '10rem';*/
+            if (goUp.offsetTop-window.scrollY-window.innerHeight <= 0) {
+                goUp.style.marginTop = '1rem';
+                goUp.style.top='1rem';
+                goUp.style.transition = '0.7s ease';
+            }
+
+        })
     };
 
     render () {
