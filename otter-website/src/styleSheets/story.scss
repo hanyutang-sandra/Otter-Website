@@ -369,6 +369,10 @@
 
 .research-photo {
   margin-top: 6rem;
+
+  @media only screen and (max-width: $breakPoint){
+    margin-top: 1rem;
+  }
 }
 
 .research-photo3{

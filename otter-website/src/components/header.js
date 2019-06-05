@@ -125,7 +125,7 @@ class Header extends React.Component {
                     <Col xs={12} onClick={()=>{
                         store.dispatch(goHome());
                         this.closeMenu()}}
-                         style={this.props.page === 'Home'? null:{color: '#979797'}}
+                         style={this.props.page === 'Home'? {color: '#979797'}:null}
                     >Home</Col>
                 </Row>,
                 <Row key='team' className='menuItem'>
@@ -133,14 +133,14 @@ class Header extends React.Component {
                          onClick={()=>{
                              store.dispatch(goStory());
                              this.closeMenu()}}
-                         style={this.props.page === 'Story'? null:{color: '#979797'}}
+                         style={this.props.page === 'Story'? {color: '#979797'}:null}
                     >Story</Col>
                 </Row>,
                 <Row key='story' className='menuItem'>
                     <Col xs={12} onClick={()=>{
                         store.dispatch(goTeam());
                         this.closeMenu()}}
-                         style={this.props.page === 'Team'? null:{color: '#979797'}}
+                         style={this.props.page === 'Team'? {color: '#979797'}:null}
                     >Team</Col>
                 </Row>
             ];
