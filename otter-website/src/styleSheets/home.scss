@@ -7,10 +7,18 @@
 
 .home{
   padding: 0 5.5rem;
+
+  @media only screen and (max-width: $breakPoint){
+    padding: 0 2rem;
+  }
 }
 
 .home-left{
   isolation: isolate;
+
+  @media only screen and (max-width: $breakPoint){
+    text-align: center;
+  }
 }
 
 .left-svg{
@@ -20,6 +28,10 @@
   transform: scale(0.7);
   fill: $orange;
   left: 5rem;
+
+  @media only screen and (max-width: $breakPoint){
+    left: 0
+  }
 }
 
 .left-text {
@@ -28,6 +40,9 @@
   height: 15rem;
   z-index: -50;
   margin-top: -20rem;
+  @media only screen and (max-width: $breakPoint){
+    margin-top: -10rem;
+  }
   /*margin-top: 20rem;*/
   color: black;
  /* mix-blend-mode: saturation;*/
@@ -41,17 +56,32 @@
 
 .text-title{
   @extend .h1;
+
+  @media only screen and (max-width: $breakPoint){
+    font-family: $Ubuntu;
+    font-size: 1.875rem;
+  }
 }
 
 .text-subtitle{
   @extend .h3;
   margin-top: 1.5rem;
+
+  @media only screen and (max-width: $breakPoint){
+    font-family: $Lato;
+    font-size: 1.25rem;
+  }
 }
 
 .button {
   @extend .button-base;
   position: relative;
   z-index: 50;
+  margin-top: 3rem;
+
+  @media only screen and (max-width: $breakPoint){
+    margin-top: -3rem;
+  }
 }
 
 .home-right {
@@ -64,7 +94,7 @@
   height: 100%;
   display: inline-block;
   overflow: hidden;
-  margin-top: 15rem;
+  margin-top: 10rem;
   position: relative;
   z-index: 90;
 }
@@ -90,3 +120,5 @@
   right: -45rem;
 }
 
+.home-container>div{
+}

@@ -12,7 +12,7 @@ import anime from 'animejs';
 
 class Home extends React.Component {
     componentDidMount = () => {
-        window.addEventListener('scroll', this.handleScroll);
+        if (window.screen.availWidth >= 768)  {window.addEventListener('scroll', this.handleScroll);}
         /*this.handleMove('.left-svg');*/
         window.scrollTo(0, 0);
     };
@@ -40,7 +40,7 @@ class Home extends React.Component {
         return (
             <Grid className='home-container' fluid>
                 <Row className='home'>
-                    <Col lg={6} className='home-left'>
+                    <Col lg={6} md={6} className='home-left'>
                         <div className='left-svg'>
                             <img src={leftSvg} alt='svg' />
                         </div>
@@ -52,21 +52,24 @@ class Home extends React.Component {
                             See On-Going Process
                         </button>
                     </Col>
-                    <Col lg={6} className='home-right'>
-                        <div className='right-persona'>
-                            <img src={persona} alt='student-persona' />
-                        </div>
-                    </Col>
+                    {window.screen.availWidth < 768?
+                        null
+                        :<Col lg={6} md={6} className='home-right'>
+                            <div className='right-persona'>
+                                <img src={persona} alt='student-persona' />
+                            </div>
+                        </Col>
+                    }
                 </Row>
-                <svg className='home-svg-left' viewBox="0 0 581.63 626.68">
+               {/* <svg className='home-svg-left' viewBox="0 0 581.63 626.68">
                     <path x='0' y='0'
                           d="M580.91,323.68c12.16,176.31-130.27,303-307,303-131,0-247-92-270-216-19.54-105.32,38-174,88-223,57.58-56.43,54.52-167.25,202-186C466.91-20.32,570.91,178.68,580.91,323.68Z"/>
                 </svg>
                 <svg className='home-svg-right' viewBox="0 0 581.63 626.68">
                     <path x='0' y='0'
                           d="M580.91,323.68c12.16,176.31-130.27,303-307,303-131,0-247-92-270-216-19.54-105.32,38-174,88-223,57.58-56.43,54.52-167.25,202-186C466.91-20.32,570.91,178.68,580.91,323.68Z"/>
-                </svg>
-                <div style={{width: '100%', height: '15rem'}} />
+                </svg>*/}
+                <div style={{width: '100%', height: '5rem'}} />
             </Grid>
         )
     }

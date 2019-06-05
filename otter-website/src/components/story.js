@@ -40,69 +40,84 @@ function getSiblings(elem) {
 class Story extends React.Component {
 
     componentDidMount = () => {
-        this.backgroundAnimation('.cover-img-cover', '.cover-text');
+        this.backgroundAnimation('.cover-img img', '.cover-text');
         window.scrollTo(0, 0);
-        window.addEventListener('wheel', this.showPosition);
-        window.addEventListener('scroll', this.sectionAnimation)
+        window.addEventListener('scroll', this.sectionAnimation);
+        if (window.screen.availWidth >= 1024) {
+            window.addEventListener('wheel', this.showPosition);
+        }
     };
 
     backgroundAnimation = (elem1, elem2) => {
         anime.timeline({
             targets: elem1,
-            width: '0%',
+            left: 0,
+            opacity: 1,
             easing: 'easeInOutQuad',
             direction: 'normal',
             loop: false
         }).add({
             targets: elem2,
-            marginTop: '-13rem',
+            marginTop: window.screen.availWidth >768? '-10rem': '-12rem',
             opacity: '1',
             direction: 'normal',
-            loop: false
+            loop: false,
         })
     };
 
     anchorClick = (ev) => {
-        window.scrollTo(0, document.querySelector(ev.currentTarget.getAttribute('data-name')).offsetTop-50, 'smooth');
-        document.querySelector('.side-svg line').setAttribute('y1',  ev.currentTarget.offsetTop + 5.8);
-        document.querySelector('.side-svg line').setAttribute('y2',  ev.currentTarget.offsetTop+ 6.8);
-        ev.currentTarget.style.color='black';
-        getSiblings(ev.currentTarget).forEach(elem => elem.style.color = '#979797');
+        if (window.screen.availWidth >= 1024) {
+            window.scrollTo(0, document.querySelector(ev.currentTarget.getAttribute('data-name')).offsetTop - 50, 'smooth');
+            document.querySelector('.side-svg line').setAttribute('y1', ev.currentTarget.offsetTop + 5.8);
+            document.querySelector('.side-svg line').setAttribute('y2', ev.currentTarget.offsetTop + 6.8);
+            ev.currentTarget.style.color = 'black';
+            getSiblings(ev.currentTarget).forEach(elem => elem.style.color = '#979797');
+        }
     };
 
     hoverAnimation = (ev) => {
-        anime({
-            targets: document.querySelector('.side-svg line'),
-            y2: {value: ev.currentTarget.offsetTop + 5, duration: 1000, delay: 0},
-            easing: 'easeOutElastic(1, .8)',
-            loop: false
-        });
+        if (window.screen.availWidth >= 1024) {
+            anime({
+                targets: document.querySelector('.side-svg line'),
+                y2: {value: ev.currentTarget.offsetTop + 5, duration: 1000, delay: 0},
+                easing: 'easeOutElastic(1, .8)',
+                loop: false
+            });
+        }
     };
 
     leaveAnimation = () => {
-        anime({
-            targets: document.querySelector('.side-svg line'),
-            y2: {value: parseInt(document.querySelector('.side-svg line').getAttribute('y1')) + 1, duration: 1000, delay: 0},
-            easing: 'easeOutElastic(1, .8)',
-            loop: false
-        });
+        if (window.screen.availWidth >= 1024) {
+            anime({
+                targets: document.querySelector('.side-svg line'),
+                y2: {
+                    value: parseInt(document.querySelector('.side-svg line').getAttribute('y1')) + 1,
+                    duration: 1000,
+                    delay: 0
+                },
+                easing: 'easeOutElastic(1, .8)',
+                loop: false
+            });
+        }
     };
 
     showPosition = () => {
-        document.querySelectorAll('.story-main>section').forEach((elem) => {
-            if (elem.offsetTop-window.scrollY-window.innerHeight < 0 ) {
-                document.querySelector('.' + elem.getAttribute('class') + '-anchor').style.color = 'black';
-                getSiblings(document.querySelector('.' + elem.getAttribute('class') + '-anchor' ))
-                    .forEach((elem) => elem.style.color = '#979797');
+        if (window.screen.availWidth >= 1024) {
+            document.querySelectorAll('.story-main>section').forEach((elem) => {
+                if (elem.offsetTop - window.scrollY - window.innerHeight < 0) {
+                    document.querySelector('.' + elem.getAttribute('class') + '-anchor').style.color = 'black';
+                    getSiblings(document.querySelector('.' + elem.getAttribute('class') + '-anchor'))
+                        .forEach((elem) => elem.style.color = '#979797');
 
-                if (document.querySelector('.' + elem.getAttribute('class') + '-anchor').style.color === 'black') {
-                    let target = document.querySelector('.' + elem.getAttribute('class') + '-anchor');
-                    document.querySelector('.side-svg line').setAttribute('y1', target.offsetTop + 5.8);
-                    document.querySelector('.side-svg line').setAttribute('y2', target.offsetTop + 6.8);
+                    if (document.querySelector('.' + elem.getAttribute('class') + '-anchor').style.color === 'black') {
+                        let target = document.querySelector('.' + elem.getAttribute('class') + '-anchor');
+                        document.querySelector('.side-svg line').setAttribute('y1', target.offsetTop + 5.8);
+                        document.querySelector('.side-svg line').setAttribute('y2', target.offsetTop + 6.8);
+                    }
                 }
-            }
 
-        });
+            });
+        }
 
     };
 
@@ -164,64 +179,72 @@ class Story extends React.Component {
         document.querySelector('#root').prepend(img);
     };
 
+    renderSide = (screen) => {
+        if (screen >= 1024) {
+            return (
+                <Col lg={2} md={2}>
+                    <aside className='story-side'>
+                        <svg className='side-svg'>
+                            <line x1='6' y1='30' x2='6' y2='31'/>
+                        </svg>
+                        <ul>
+                            <li className='about-anchor'
+                                data-name=".about"
+                                onClick={this.anchorClick.bind(this)}
+                                onMouseOver={this.hoverAnimation.bind(this)}
+                                onMouseOut={this.leaveAnimation.bind(this)}
+                                style={{color: 'black'}}
+                            >
+                                About
+                            </li>
+                            <li className='team-anchor'
+                                data-name=".team"
+                                onClick={this.anchorClick.bind(this)}
+                                onMouseOver={this.hoverAnimation.bind(this)}
+                                onMouseOut={this.leaveAnimation.bind(this)}>
+                                Team
+                            </li>
+                            <li className='research-anchor'
+                                data-name=".research"
+                                onClick={this.anchorClick.bind(this)}
+                                onMouseOver={this.hoverAnimation.bind(this)}
+                                onMouseOut={this.leaveAnimation.bind(this)}>
+                                Research
+                            </li>
+                            <li className='problem-space-anchor'
+                                data-name=".problem-space"
+                                onClick={this.anchorClick.bind(this)}
+                                onMouseOver={this.hoverAnimation.bind(this)}
+                                onMouseOut={this.leaveAnimation.bind(this)}>
+                                Problem Space
+                            </li>
+                            <li className='ideation-anchor'
+                                data-name=".ideation"
+                                onClick={this.anchorClick.bind(this)}
+                                onMouseOver={this.hoverAnimation.bind(this)}
+                                onMouseOut={this.leaveAnimation.bind(this)}>
+                                Ideation
+                            </li>
+                        </ul>
+                    </aside>
+                </Col>
+            )
+        }
+    };
+
 
     render () {
         return (
             <Grid className='story-container' fluid>
                 <Row>
-                    <Col lg={2}>
-                        <aside className='story-side'>
-                            <svg className='side-svg'>
-                                <line x1='6' y1='30' x2='6' y2='31'/>
-                            </svg>
-                            <ul>
-                                <li className='about-anchor'
-                                    data-name=".about"
-                                    onClick={this.anchorClick.bind(this)}
-                                    onMouseOver={this.hoverAnimation.bind(this)}
-                                    onMouseOut={this.leaveAnimation.bind(this)}
-                                    style={{color: 'black'}}
-                                >
-                                    About
-                                </li>
-                                <li className='team-anchor'
-                                    data-name=".team"
-                                    onClick={this.anchorClick.bind(this)}
-                                    onMouseOver={this.hoverAnimation.bind(this)}
-                                    onMouseOut={this.leaveAnimation.bind(this)}>
-                                    Team
-                                </li>
-                                <li className='research-anchor'
-                                    data-name=".research"
-                                    onClick={this.anchorClick.bind(this)}
-                                    onMouseOver={this.hoverAnimation.bind(this)}
-                                    onMouseOut={this.leaveAnimation.bind(this)}>
-                                    Research
-                                </li>
-                                <li className='problem-space-anchor'
-                                    data-name=".problem-space"
-                                    onClick={this.anchorClick.bind(this)}
-                                    onMouseOver={this.hoverAnimation.bind(this)}
-                                    onMouseOut={this.leaveAnimation.bind(this)}>
-                                    Problem Space
-                                </li>
-                                <li className='ideation-anchor'
-                                    data-name=".ideation"
-                                    onClick={this.anchorClick.bind(this)}
-                                    onMouseOver={this.hoverAnimation.bind(this)}
-                                    onMouseOut={this.leaveAnimation.bind(this)}>
-                                    Ideation
-                                </li>
-                            </ul>
-                        </aside>
-                    </Col>
+                    {this.renderSide(window.screen.availWidth)}
 
-                    <Col lg={8} >
+                    <Col lg={8} lgOffset={0} md={8} mdOffset={2} xs={12}>
                         <main className='story-main'>
                             <div className='cover'>
                                 <div className='cover-img'>
                                     <img src={cover} alt='cover' />
-                                    <div className='cover-img-cover'/>
+                                    {/*<div className='cover-img-cover'/>*/}
                                 </div>
                                 <div className='cover-text'>
                                     <svg className='coverText-svg' viewBox="0 0 581.63 626.68">
@@ -355,19 +378,21 @@ class Story extends React.Component {
                                 </div>
                                 <Grid fluid className='research-photo goUp' style={{padding: 5}}>
                                     <Row>
-                                        <Col lg={6} style={{paddingLeft: 0, paddingRight: 10}}>
+                                        <Col lg={6} md={6} xs={12} style={window.screen.availWidth >= 768? {paddingLeft: 0, paddingRight: 10} : {padding: 0}}>
                                             <LazyLoad>
                                                 <img src={research1} alt='research-1'/>
                                             </LazyLoad>
                                         </Col>
-                                        <Col lg={6} style={{textAlign: 'right', paddingRight: 0, paddingLeft: 10}}>
+                                        <Col lg={6} md={6} xs={12} style={window.screen.availWidth >= 768?
+                                            {textAlign: 'right', paddingRight: 0, paddingLeft: 10}
+                                            :{padding: 0, marginTop: '1.3rem'}}>
                                             <LazyLoad>
                                                 <img src={research2} alt='research-2'/>
                                             </LazyLoad>
                                         </Col>
                                     </Row>
                                     <Row className='research-photo3'>
-                                        <Col lg={12} style={{padding: 0}}>
+                                        <Col lg={12} md={12} xs={12} style={{padding: 0}}>
                                             <LazyLoad>
                                                 <img src={research3} alt='research-3'/>
                                             </LazyLoad>
@@ -462,7 +487,7 @@ class Story extends React.Component {
                                 </div>
                                 <Grid fluid className='ideation-photo goUp' style={{padding: 5}}>
                                     <Row>
-                                        <Col lg={6} style={{paddingLeft: 0, paddingRight: 10}}>
+                                        <Col lg={6} md={6} xs={12} style={{paddingLeft: 0, paddingRight: 10}}>
                                             <LazyLoad>
                                                 <img src={interactivo1} alt='interactivo-1'/>
                                             </LazyLoad>
@@ -472,7 +497,7 @@ class Story extends React.Component {
                                                     have enough chance to practice.</p>
                                             </div>
                                         </Col>
-                                        <Col lg={6} style={{textAlign: 'left', paddingRight: 0, paddingLeft: 10}}>
+                                        <Col lg={6} md={6} xs={12} style={{textAlign: 'left', paddingRight: 0, paddingLeft: 10}}>
                                             <LazyLoad>
                                                 <img src={interactivo2} alt='interactivo-1'/>
                                             </LazyLoad>
@@ -485,7 +510,9 @@ class Story extends React.Component {
                                         </Col>
                                     </Row>
                                     <Row>
-                                        <Col lg={6} style={{paddingLeft: 0, paddingRight: 10}}>
+                                        <Col lg={6} md={6} xs={12} style={window.screen.availWidth >= 768?
+                                            {paddingLeft: 0, paddingRight: 10}
+                                        :{padding: 0}}>
                                             <LazyLoad>
                                                 <img src={interactivo3} alt='interactivo-1'/>
                                             </LazyLoad>
@@ -496,7 +523,10 @@ class Story extends React.Component {
                                                 </p>
                                             </div>
                                         </Col>
-                                        <Col lg={6} style={{textAlign: 'left', paddingRight: 0, paddingLeft: 10}}>
+                                        <Col lg={6} md={6} xs={12} style={window.screen.availWidth >= 768?
+                                            {textAlign: 'left', paddingRight: 0, paddingLeft: 10}
+                                            :{padding: 0}
+                                        }>
                                             <LazyLoad>
                                                 <img src={interactivo4} alt='interactivo-1'/>
                                             </LazyLoad>
