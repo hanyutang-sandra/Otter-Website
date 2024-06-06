@@ -1,7 +1,7 @@
 {
   "name": "otter-website",
   "version": "0.1.0",
-  "homepage": "https://hanyutang-sandra.github.io/otter",
+  "homepage": "https://hanyutang-sandra.github.io/Otter-Website/",
   "private": true,
   "dependencies": {
     "animejs": "^3.0.1",
