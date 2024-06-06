@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import '../styleSheets/footer.scss';
+import '../styleSheets/footer.css';
 
 class Footer extends React.Component {
     render () {

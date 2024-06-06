@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import persona from '../media/Home/persona-border.svg';
-import '../styleSheets/home.scss';
+import '../styleSheets/home.css';
 import leftSvg from '../media/Home/Home-Shape.svg';
 
 import {top, notTop, goStory} from "../redux/actions";

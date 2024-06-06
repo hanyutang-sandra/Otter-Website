@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import '../styleSheets/story.scss';
+import '../styleSheets/story.css';
 import cover from '../media/Story/Story-Cover.jpg';
 import shiv from '../media/Team/Team-Shiv.jpg';
 import wei from '../media/Team/Team-Wei.jpg';

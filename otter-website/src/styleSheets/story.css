@@ -1,9 +1,7 @@
-@import "./styles.scss";
-
 .story-container{
   display: block;
   box-sizing: border-box;
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     padding: 0 1rem;
     margin-top: 4rem;
   }
@@ -24,8 +22,10 @@
 }
 
 .story-side li{
-  @extend .body2;
-  color: $grey1;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;;
+  color: #979797;
   margin-top: 1.5rem;
   cursor: pointer;
 
@@ -44,14 +44,14 @@
 .side-svg line{
   stroke-width: 6;
   stroke-linecap: round;
-  stroke: $blue;
+  stroke: #65cfff;
 }
 
 .story-main{
   display: inline-block;
   padding-left: 1rem;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     padding: 0;
     width: 100%;
   }
@@ -96,7 +96,7 @@
   width: 100%;
   height: auto;
   padding: 1.15rem 0 6rem 0;
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     padding: 0 0;
     margin-top: 4rem;
     text-align: center;
@@ -104,11 +104,13 @@
 }
 
 .story-main section .main-title{
-  @extend .h2;
+  font-family: 'Lato', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;;
   display: inline-block;
 
-  @media only screen and (max-width: $breakPoint){
-    font-family: $Lato;
+  @media only screen and (max-width: 768px){
+    font-family: 'Lato', sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
   }
@@ -119,12 +121,12 @@
     position: relative;
     z-index: -100;
     top: 2.5rem;
-    background-color: $blue;
+    background-color: #65cfff;
     width: 10%;
     height: 1.3rem;
     border-radius: 3rem;
 
-    @media only screen and (max-width: $breakPoint){
+    @media only screen and (max-width: 768px){
       top: 1.5rem;
       height: 0.7rem;
     }
@@ -136,13 +138,13 @@
     position: relative;
     z-index: -100;
     top: 2.5rem;
-    background-color: $blue;
+    background-color: #65cfff;
     width: 105%;
     height: 1.3rem;
     border-radius: 3rem;
     animation: longer 0.5s;
 
-    @media only screen and (max-width: $breakPoint){
+    @media only screen and (max-width: 768px){
       top: 1.5rem;
       height: 0.7rem;
     }
@@ -156,11 +158,14 @@
 
 
 .story-main section .main-article {
-  @extend .body1;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.375rem;;
   margin-top: 1.675rem;
 
-  @media only screen and (max-width: $breakPoint){
-    font-family: $Lato;
+  @media only screen and (max-width: 768px){
+    font-family: 'Lato', sans-serif;
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.125rem;
@@ -170,7 +175,9 @@
 }
 
 .story-main section .main-subtitle {
-  @extend .h4;
+  font-family: 'Lato', sans-serif;
+font-size: 1.25rem;
+font-weight: 400;;
   margin-top: 1.675rem;
 }
 
@@ -187,7 +194,7 @@
   margin-top: 0;
   opacity: 0;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     width: 100%;
   }
 }
@@ -197,9 +204,9 @@
   left: -10rem;
   z-index: 10;
   transform: scale(0.55) rotate(90deg);
-  fill: $blue;
+  fill: #65cfff;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     left: 0;
     transform: scale(0.4) rotate(90deg);
     margin-top: 7rem;
@@ -213,26 +220,30 @@
   z-index: 80;
   margin-top: -15rem;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     margin-top: -15rem;
   }
 }
 
 .coverText-title {
-  @extend .h1;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 3.375rem;;
 
-  @media only screen and (max-width: $breakPoint){
-    font-family: $Ubuntu;
+  @media only screen and (max-width: 768px){
+    font-family: 'Ubuntu', sans-serif;
     font-size: 1.875rem;
   }
 }
 
 .coverText-article {
-  @extend .body1;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.375rem;;
   margin-top: 1.675rem;
 
-  @media only screen and (max-width: $breakPoint){
-    font-family: $Lato;
+  @media only screen and (max-width: 768px){
+    font-family: 'Lato', sans-serif;
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.125rem;
@@ -249,7 +260,7 @@
   margin-bottom: 3.5rem;
   display: flex;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     overflow-x: hidden;
     flex-wrap: wrap;
     text-align: center;
@@ -263,7 +274,7 @@
   padding-left: 0.3rem;
   align-items: end;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     width: 45%;
     margin-bottom: 1rem;
 
@@ -275,23 +286,28 @@
 }
 
 .team-photos p:first-child{
-  @extend .h4;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;;
   margin-top: 1.1rem;
 
-  @media only screen and (max-width: $breakPoint){
-    font-family: $Lato;
+  @media only screen and (max-width: 768px){
+    font-family: 'Lato', sans-serif;
     font-size: 1.09rem;
     font-weight: 400;
   }
 }
 
 .team-photos p:last-child{
-  @extend .body1;
-  color: $grey1;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.375rem;;
+  color: #979797;
   margin-top: 0.5rem;
 
-  @media only screen and (max-width: $breakPoint){
-    font-family: $Lato;
+  @media only screen and (max-width: 768px){
+    font-family: 'Lato', sans-serif;
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.125rem;
@@ -370,7 +386,7 @@
 .research-photo {
   margin-top: 6rem;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     margin-top: 1rem;
   }
 }
@@ -407,28 +423,24 @@
   }
 }
 
-.teacher-persona-back {
+.student-persona-back {
   display: block;
   position: relative;
   z-index: -50;
   width: 30%;
   height: 13rem;
-  background-color: $blue;
+  background-color: #65cfff;
   margin-top: -21rem;
   margin-bottom: 10rem;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     height: 7rem;
     margin-top: -11rem;
   }
-}
-
-.student-persona-back {
-  @extend .teacher-persona-back;
   height: 16rem;
   margin-top: -21rem;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     height: 7rem;
     margin-top: -11rem;
   }
@@ -454,9 +466,11 @@
 }
 
 .more p{
-  @extend .h4;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;;
   display: inline-block;
-  color: $blue;
+  color: #65cfff;
 }
 
 

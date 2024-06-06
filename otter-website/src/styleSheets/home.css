@@ -1,5 +1,3 @@
-@import "./styles.scss";
-
 .home-container{
   display: block;
   box-sizing: border-box;
@@ -8,7 +6,7 @@
 .home{
   padding: 0 5.5rem;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     padding: 0 2rem;
   }
 }
@@ -16,7 +14,7 @@
 .home-left{
   isolation: isolate;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     text-align: center;
   }
 }
@@ -26,10 +24,10 @@
   margin-top: 3rem;
   z-index: -90;
   transform: scale(0.7);
-  fill: $orange;
+  fill: #ff8a51;
   left: 5rem;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     left: 0
   }
 }
@@ -40,12 +38,12 @@
   height: 15rem;
   z-index: -50;
   margin-top: -20rem;
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     margin-top: -10rem;
   }
   /*margin-top: 20rem;*/
   color: black;
- /* mix-blend-mode: saturation;*/
+  /* mix-blend-mode: saturation;*/
 }
 
 
@@ -55,33 +53,59 @@
 }
 
 .text-title{
-  @extend .h1;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 3.375rem;
 
-  @media only screen and (max-width: $breakPoint){
-    font-family: $Ubuntu;
+  @media only screen and (max-width: 768px){
+    font-family: 'Ubuntu', sans-serif;
     font-size: 1.875rem;
   }
 }
 
 .text-subtitle{
-  @extend .h3;
+  font-family: 'Lato', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 300;;
   margin-top: 1.5rem;
 
-  @media only screen and (max-width: $breakPoint){
-    font-family: $Lato;
+  @media only screen and (max-width: 768px){
+    font-family: 'Lato', sans-serif;
     font-size: 1.25rem;
   }
 }
 
 .button {
-  @extend .button-base;
+  display: inline-block;
+  width: auto;
+  min-width: 8.75rem;
+  height: 3.75rem;
+  border-radius: 2.5rem;
+  padding: 1.3125rem 2.75rem;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #65cfff;
+  cursor: pointer;
+  outline: none;
+  border: none;;
   position: relative;
   z-index: 50;
   margin-top: 3rem;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     margin-top: -3rem;
   }
+}
+
+.button:hover{
+  box-shadow: 0 2px 8px #d8d8d8;
+}
+
+.button:active{
+  transform: scale(0.95);
+  filter: brightness(0.95);
+  box-shadow: none;
 }
 
 .home-right {
@@ -107,7 +131,7 @@
 .home-svg-left{
   position: absolute;
   transform: rotate(90deg) scale(0.2);
-  fill: $grey3;
+  fill: #f0f0f0;
   margin-top: -45rem;
   left: -45rem;
 }
@@ -115,7 +139,7 @@
 .home-svg-right{
   position: absolute;
   transform: rotate(90deg) scale(0.2);
-  fill: $grey3;
+  fill: #f0f0f0;
   margin-top: -45rem;
   right: -45rem;
 }

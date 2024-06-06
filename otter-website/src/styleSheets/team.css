@@ -1,9 +1,7 @@
-@import "./styles.scss";
-
 .team-container{
   display: block;
   box-sizing: border-box;
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     padding: 0 1rem;
     margin-top: 4rem;
   }
@@ -23,8 +21,10 @@
 }
 
 .team-side li{
-  @extend .body2;
-  color: $grey1;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;;
+  color: #979797;
   margin-top: 1.5rem;
   cursor: pointer;
 
@@ -43,7 +43,7 @@
 .team-side .side-svg line{
   stroke-width: 6;
   stroke-linecap: round;
-  stroke: $yellow;
+  stroke: #ffd12c;
 }
 
 .team-main section {
@@ -51,17 +51,19 @@
   height: auto;
   padding: 1.15rem 0 6rem 0;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     padding: 1.15rem 0 4rem 0;;
   }
 }
 
 .team-main section .main-title{
-  @extend .h2;
+  font-family: 'Lato', sans-serif;
+font-size: 2.25rem;
+font-weight: 700;;
   display: inline-block;
 
-  @media only screen and (max-width: $breakPoint){
-    font-family: $Lato;
+  @media only screen and (max-width: 768px){
+    font-family: 'Lato', sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
   }
@@ -72,7 +74,7 @@
     position: relative;
     z-index: -100;
     top: 2.5rem;
-    background-color: $blue;
+    background-color: #65cfff;
     width: 105%;
     height: 1.3rem;
     border-radius: 3rem;
@@ -81,11 +83,14 @@
 
 
 .team-main section .main-article {
-  @extend .body1;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.375rem;;
   margin-top: 1.675rem;
 
-  @media only screen and (max-width: $breakPoint){
-    font-family: $Lato;
+  @media only screen and (max-width: 768px){
+    font-family: 'Lato', sans-serif;
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.125rem;
@@ -133,7 +138,7 @@
   margin-top: 20rem;
   opacity: 0;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     width: 100%;
   }
 }
@@ -143,9 +148,9 @@
   left: -10rem;
   z-index: 10;
   transform: scale(0.55) rotate(90deg);
-  fill: $yellow;
+  fill: #ffd12c;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     left: 0;
     transform: scale(0.4) rotate(90deg);
     margin-top: 7rem;
@@ -159,26 +164,30 @@
   margin-top: -15rem;
   text-align: center;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     margin-top: -15rem;
   }
 }
 
 .coverText-title {
-  @extend .h1;
+  font-family: 'Ubuntu', sans-serif;
+font-size: 3.375rem;;
 
-  @media only screen and (max-width: $breakPoint){
-    font-family: $Ubuntu;
+  @media only screen and (max-width: 768px){
+    font-family: 'Ubuntu', sans-serif;
     font-size: 1.875rem;
   }
 }
 
 .coverText-article {
-  @extend .body1;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.375rem;;
   margin-top: 1.675rem;
 
-  @media only screen and (max-width: $breakPoint){
-    font-family: $Lato;
+  @media only screen and (max-width: 768px){
+    font-family: 'Lato', sans-serif;
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.125rem;
@@ -188,19 +197,19 @@
 }
 
 .members>ul>li{
-  border-top: 1px solid $grey2;
+  border-top: 1px solid #d8d8d8;
   padding: 2.9375rem 1rem;
   background-color: #ffffff;
   position: relative;
   top: 10rem;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     padding: 2.9375rem 0;
   }
 }
 
 .members>ul>li>div{
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     padding: 0;
   }
 }
@@ -209,7 +218,7 @@
   width: 100%;
   height: auto;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     text-align: center;
   }
 }
@@ -218,7 +227,7 @@
   width: 100%;
   height: auto;
   object-fit: contain;
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     width: 50%;
   }
 
@@ -258,11 +267,13 @@
 }
 
 .members-text p:first-child{
-  @extend .h4;
+  font-family: 'Lato', sans-serif;
+font-size: 1.25rem;
+font-weight: 400;;
   margin-top: 1.1rem;
 
-  @media only screen and (max-width: $breakPoint){
-    font-family: $Lato;
+  @media only screen and (max-width: 768px){
+    font-family: 'Lato', sans-serif;
     font-size: 1.09rem;
     font-weight: 400;
 
@@ -271,12 +282,15 @@
 }
 
 .members-text p:last-child{
-  @extend .body1;
-  color: $grey1;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.375rem;;
+  color: #979797;
   margin-top: 0.5rem;
 
-  @media only screen and (max-width: $breakPoint){
-    font-family: $Lato;
+  @media only screen and (max-width: 768px){
+    font-family: 'Lato', sans-serif;
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.125rem;
@@ -286,11 +300,14 @@
 }
 
 .members-intro {
-  @extend .body1;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.375rem;;
   padding-left: 2rem;
 
-  @media only screen and (max-width: $breakPoint){
-    font-family: $Lato;
+  @media only screen and (max-width: 768px){
+    font-family: 'Lato', sans-serif;
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.125rem;
@@ -305,7 +322,7 @@
   width: 100%;
   text-align: right;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     text-align: center;
   }
 }
@@ -316,7 +333,7 @@
   margin-top: 3.5rem;
   cursor: pointer;
 
-  @media only screen and (max-width: $breakPoint){
+  @media only screen and (max-width: 768px){
     margin-right: 0.9rem;
     margin-left: 0;
     margin-top: 2rem;
@@ -324,8 +341,11 @@
 }
 
 .members-link li span{
-  @extend .body1;
-  color: $grey1;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.375rem;;
+  color: #979797;
   align-items: center;
   margin-left: 0.5rem;
 }

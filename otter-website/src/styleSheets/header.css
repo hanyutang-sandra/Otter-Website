@@ -1,10 +1,8 @@
-@import "./styles.scss";
-
 .header-container{
-    @media only screen and (min-width: $breakPoint){
+    @media only screen and (min-width: 768px){
         padding: 0 2.3rem;
     }
-    @media only screen and (max-width: $breakPoint) {
+    @media only screen and (max-width: 768px) {
         height: 3.75rem;
         position: relative;
         overflow-y: hidden;
@@ -12,12 +10,12 @@
 }
 
 .header{
-    @media only screen and (min-width: $breakPoint){
+    @media only screen and (min-width: 768px){
         height: 4.385rem;
         width: calc(100% - 5.7rem);
         position: fixed;
     }
-    @media only screen and (max-width: $breakPoint){
+    @media only screen and (max-width: 768px){
     }
     height: 3.75rem;
     width: 100%;
@@ -27,7 +25,7 @@
 }
 
 .logo{
-    @media only screen and (min-width: $breakPoint){
+    @media only screen and (min-width: 768px){
         padding-left: 4rem;
     }
     padding-top: 1rem;
@@ -40,7 +38,7 @@
 }
 
 .logoPic{
-    @media only screen and (max-width: $breakPoint){
+    @media only screen and (max-width: 768px){
         height: 1.5rem;
         width: auto
     }
@@ -50,7 +48,9 @@
 }
 
 .logoName{
-    @extend .h5;
+    font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;;
     display: inline-block;
     vertical-align: middle;
 }
@@ -68,7 +68,9 @@
 }
 
 .breadcrumbBox li {
-    @extend .h5;
+    font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;;
     display: inline-block;
     width: 3rem;
     height: 2.4rem;
@@ -86,19 +88,19 @@
 .breadcrumbHome svg line {
     stroke-width: 6;
     stroke-linecap: round;
-    stroke: $orange;
+    stroke: #ff8a51;
 }
 
 .breadcrumbStory svg line {
     stroke-width: 6;
     stroke-linecap: round;
-    stroke: $blue;
+    stroke: #65cfff;
 }
 
 .breadcrumbTeam svg line {
     stroke-width: 6;
     stroke-linecap: round;
-    stroke: $yellow;
+    stroke: #ffd12c;
 }
 
 .hamburgerBtn{
@@ -110,7 +112,10 @@
 .menuItem {
     text-align: center;
     height: 3.75rem;
-    @extend .body1;
+    font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.375rem;;
     vertical-align: middle;
 }
 

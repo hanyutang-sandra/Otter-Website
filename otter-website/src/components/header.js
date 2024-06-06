@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import '../styleSheets/header.scss';
+import '../styleSheets/header.css';
 import logo from '../media/logo.svg';
 import hamburgerBtnImg  from '../media/Group 2.svg';
 import closeBtn from '../media/Group 2-2.svg';
